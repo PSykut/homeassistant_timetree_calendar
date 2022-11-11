@@ -20,7 +20,7 @@ class EventData(Base):
 
 
 class EventAttributes(Base):
-    def __init__(self, title=None, category=None, all_day=None, start_at=None, start_timezone=None, end_at=None, end_timezone=None, description=None, location=None, url=None, relationships=None):
+    def __init__(self, title=None, category=None, all_day=None, start_at=None, start_timezone=None, end_at=None, end_timezone=None, description=None, location=None, url=None, relationships=None, location_lat=None, location_lon=None):
 
         super(EventAttributes, self).__init__()
 
@@ -34,6 +34,8 @@ class EventAttributes(Base):
         self.description = description
         self.location = location
         self.url = url
+        self.location_lat = location_lat
+        self.location_lon = location_lon
         self.label = self.get_or_new_from_json_dict(relationships, EventRelationships)
 
 
